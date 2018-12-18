@@ -5,3 +5,9 @@
   <input type="text" name="message">
   <input type="submit" value="Submit">
 </form>
+
+<% @history.reverse.each do |message| %>
+      <div>
+        <%= message.message %> 
+      </div>
+    <% end %>

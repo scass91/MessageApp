@@ -1,6 +1,6 @@
 class Message
 
-  attr_reader :message, :history
+  attr_reader :message
 
   def initialize(message)
     @message = message

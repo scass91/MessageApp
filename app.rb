@@ -2,16 +2,18 @@ require 'sinatra/base'
 require './lib/message'
 
 class FACESMASH < Sinatra::Base
+
+enable :sessions
+
   get '/' do
-  p  session[:history] ||= []
-  p  @history = session[:history]
-  p  erb :index
+    session[:history] ||= []
+    @history = session[:history]
+    erb :index
   end
 
   post "/messages" do
-  p  session[:message] = Message.new(params[:message])
-     message = session[:message]
-  p  session[:history] << message
+    message = Message.new(params[:message])
+    session[:history] << message
     redirect '/'
   end
 
