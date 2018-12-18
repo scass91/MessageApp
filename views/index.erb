@@ -8,6 +8,6 @@
 
 <% @history.reverse.each do |message| %>
       <div>
-        <%= message.message %> 
+        <%= message.message %> | <%= message.time %>
       </div>
     <% end %>
