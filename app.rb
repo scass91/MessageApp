@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/message'
+require './lib/history'
 
 class FACESMASH < Sinatra::Base
 

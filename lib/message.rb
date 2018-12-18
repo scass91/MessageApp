@@ -6,9 +6,4 @@ class Message
     @message = message
   end
 
-  # def history
-  #   @history = []
-  # end
-
-
 end
