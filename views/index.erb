@@ -1,13 +1,20 @@
-<header>
-  <h1> FACESMASH </h1>
-</header>
-<form action="/messages" method="post">
-  <input type="text" name="message">
-  <input type="submit" value="Submit">
-</form>
 
-<% @history.reverse.each do |message| %>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>FACESMASH</h1>
+    <form action="/message" method="post">
+      <input type="text" name="message">
+      <input type="submit" value="Create">
+    </form>
+    <% @messages.reverse.each do |message| %>
       <div>
-        <%= message.message %> | <%= message.time %>
+        <%= message.created_at %>: <a href=<%="/messages/#{message.id}"%>><%= message.message %></a> 
       </div>
     <% end %>
+  </body>
+</html>

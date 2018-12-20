@@ -7,16 +7,16 @@ feature 'testing' do
   scenario "Can view form to fill in" do
     visit "/"
     fill_in "message", with: "Hello"
-    click_button "Submit"
+    click_button "Create"
     expect(page).to have_content "Hello"
   end
 
   scenario "can view historic messages" do
     visit "/"
     fill_in "message", with: "Hello"
-    click_button "Submit"
+    click_button "Create"
     fill_in "message", with: "World"
-    click_button "Submit"
+    click_button "Create"
     expect(page).to have_content "Hello"
     expect(page).to have_content "World"
   end

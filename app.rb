@@ -1,21 +1,26 @@
+ENV["RACK_ENV"] ||= 'development'
+
 require 'sinatra/base'
 require './lib/message'
+require './config/data_mapper'
+
+require 'pry'
 
 class FACESMASH < Sinatra::Base
-
-enable :sessions
+  set :sessions, true
 
   get '/' do
-    session[:history] ||= []
-    @history = session[:history]
-    erb :index
+    @messages = Message.all
+    erb(:index)
   end
 
-  post "/messages" do
-    message = Message.new(params[:message])
-   p session[:history] << message
+  post '/message' do
+    Message.create(message: params[:message])
     redirect '/'
   end
 
-
+  get '/messages/:id' do
+    @message = Message.get(params[:id])
+    erb(:show)
+  end
 end
