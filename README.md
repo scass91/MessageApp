@@ -10,7 +10,8 @@ $ bundle
 $ rackup
 The app should now be available in your browser at localhost:9292
 Input your messages and see them in reverse chronological order
-The first 20 characters of a message will be displayed, in order to see the full contents of a message, click on it
+The first 20 characters of a message will be displayed 
+In order to see the full contents of a message, click on it
 ```
 
 ![Imgur](https://i.imgur.com/O99yX9r.png)
