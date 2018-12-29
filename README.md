@@ -4,7 +4,7 @@ How to use this webapp
 ---------
 
 ```
-$ git clone git@github.com:Rodrigue-K/MessageApp.git
+$ git clone git@github.com:scass91/MessageApp.git
 $ cd MessageApp
 $ bundle
 $ rackup
