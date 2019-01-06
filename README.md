@@ -4,16 +4,40 @@ How to use this webapp
 ---------
 
 ```
-$ git clone git@github.com:Rodrigue-K/MessageApp.git
+$ git clone git@github.com:scass91/MessageApp.git
 $ cd MessageApp
 $ bundle
 $ rackup
 The app should now be available in your browser at localhost:9292
-Input your messages and see them in reverse chronological order!
+Input your messages and see them in reverse chronological order
+The first 20 characters of a message will be displayed 
+In order to see the full contents of a message, click on it
 ```
 
-![Imgur](https://i.imgur.com/O99yX9r.png)
+![Imgur](https://i.imgur.com/bdUOVTx.png)
 
+
+How this looks in PSQL
+---------
+
+```
+You are now connected to database "messageapp_" as user "simon".
+messageapp_=# \dt
+         List of relations
+ Schema |   Name   | Type  | Owner
+--------+----------+-------+-------
+ public | messages | table | simon
+(1 row)
+
+messageapp_=# SELECT * FROM messages;
+ id |                   message                    |     created_at
+----+----------------------------------------------+---------------------
+  1 | Hello                                        | 2018-12-29 13:42:02
+  2 | This message                                 | 2018-12-29 13:42:23
+  3 | is under 20 chars                            | 2018-12-29 13:42:31
+  4 | Unlike this message which doesn't fully show | 2018-12-29 13:42:41
+(4 rows)
+```
 
 Our approach to this challenge
 ---------
