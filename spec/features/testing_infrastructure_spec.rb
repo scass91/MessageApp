@@ -38,6 +38,6 @@ feature 'testing' do
     fill_in :message, with: "Message 2"
     click_link "Submit"
     expect(page.current_path).to eq("/messages/#{message.id}")
-    expect(page).to have_content("This is my second message")
+    expect(page).to have_content("Message 2")
   end
 end
