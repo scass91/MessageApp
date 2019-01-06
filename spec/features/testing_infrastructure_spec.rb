@@ -30,4 +30,14 @@ feature 'testing' do
     expect(page).to have_content "This message is also over 20 characters long"
   end
 
+  scenario "Any given message can be edited by a user" do
+    m = Message.create(message: "Message 1")
+    visit "/"
+    click_link "Message 1"
+    click_link "Edit"
+    fill_in :message, with: "Message 2"
+    click_link "Submit"
+    expect(page.current_path).to eq("/messages/#{message.id}")
+    expect(page).to have_content("This is my second message")
+  end
 end

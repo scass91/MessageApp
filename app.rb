@@ -6,8 +6,10 @@ require './config/data_mapper'
 
 require 'pry'
 
+
 class FACESMASH < Sinatra::Base
   set :sessions, true
+  set :method_override, true
 
   get '/' do
     @messages = Message.all
