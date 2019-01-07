@@ -40,4 +40,15 @@ feature 'testing' do
     expect(page.current_path).to eq("/")
     expect(page).to have_content("Message 2")
   end
+
+  scenario "Any given message can be deleted by a user" do
+    m = Message.create(message: "asdfghjkl")
+    visit "/"
+    click_link "asdfghjkl"
+    click_button "Delete"
+    expect(page.current_path).to eq("/")
+    expect(page).to_not have_content("asdfghjkl")
+  end
+
+
 end
