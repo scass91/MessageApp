@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<h2> What do you wish to change "<%= @message.message %>" to? </h2>
+
+<form action="/message/<%= @message.id %>" method="post">
+  <textarea name="message[message]" id="text" rows="10" cols="40"><%= @message.message %></textarea>
+  <input type="submit" value="Update">
+</form>

@@ -34,10 +34,10 @@ feature 'testing' do
     m = Message.create(message: "Message 1")
     visit "/"
     click_link "Message 1"
-    click_link "Edit"
-    fill_in :message, with: "Message 2"
-    click_link "Submit"
-    expect(page.current_path).to eq("/messages/#{message.id}")
+    click_button "Edit"
+    fill_in :edited_content, with: "Message 2"
+    click_button "Submit"
+    expect(page.current_path).to eq("/")
     expect(page).to have_content("Message 2")
   end
 end

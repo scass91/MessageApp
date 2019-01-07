@@ -9,5 +9,8 @@
       <div>
         <%= @message.created_at %> <span><%= @message.message %></span>
       </div>
+      <form action="/messages/<%= @message.id %>/edit" method="get">
+        <input type="submit" value="Edit">
+      </form>
   </body>
 </html>
