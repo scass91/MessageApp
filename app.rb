@@ -8,7 +8,6 @@ require 'pry'
 
 class FACESMASH < Sinatra::Base
   enable :sessions
-  enable :method_override
 
   get '/' do
     @messages = Message.all
@@ -36,7 +35,7 @@ class FACESMASH < Sinatra::Base
     redirect "/"
   end
 
-  delete '/message/:id' do |id|
+  post '/delete/:id' do |id|
     @message = Message.get!(id.to_i)
     @message.destroy
     redirect "/"

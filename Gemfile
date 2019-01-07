@@ -9,5 +9,6 @@ gem "sinatra"
 gem "data_mapper"
 gem "dm-postgres-adapter"
 gem 'pry'
+gem 'rake'
 
 gem 'simplecov', require: false, group: :test
