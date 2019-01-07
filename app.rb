@@ -36,4 +36,10 @@ class FACESMASH < Sinatra::Base
     redirect "/"
   end
 
+  delete '/message/:id' do |id|
+    @message = Message.get!(id.to_i)
+    @message.destroy
+    redirect "/"
+  end
+
 end

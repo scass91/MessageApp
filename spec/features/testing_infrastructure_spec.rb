@@ -50,5 +50,4 @@ feature 'testing' do
     expect(page).to_not have_content("asdfghjkl")
   end
 
-
 end
