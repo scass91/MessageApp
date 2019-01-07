@@ -7,10 +7,12 @@
   </head>
   <body>
     <h1>FACESMASH</h1>
+    <div>
     <form action="/message" method="post">
       <input type="text" name="message">
       <input type="submit" value="Create">
     </form>
+    <br>
     <% @messages.reverse.each do |message| %>
       <div>
         <%= message.created_at %>:::: <a href=<%="/messages/#{message.id}"%>><%= message.message[0..19]%></a>
