@@ -12,9 +12,10 @@ The app should now be available in your browser at localhost:9292
 Input your messages and see them in reverse chronological order
 The first 20 characters of a message will be displayed 
 In order to see the full contents of a message, click on it
+
 ```
 
-![Imgur](https://i.imgur.com/bdUOVTx.png)
+![Imgur](https://i.imgur.com/sVvZ7Xk.png)
 
 
 How this looks in PSQL
@@ -32,14 +33,13 @@ messageapp_=# \dt
 messageapp_=# SELECT * FROM messages;
  id |                   message                    |     created_at
 ----+----------------------------------------------+---------------------
-  1 | Hello                                        | 2018-12-29 13:42:02
-  2 | This message                                 | 2018-12-29 13:42:23
-  3 | is under 20 chars                            | 2018-12-29 13:42:31
-  4 | Unlike this message which doesn't fully show | 2018-12-29 13:42:41
-(4 rows)
+  1 | Hello                                        | 2019-01-08 10:48:27
+  2 | This message                                 | 2019-01-08 10:48:30
+  3 | is under 20 chars                            | 2019-01-08 10:48:34
+  4 | unlike this message which doesn't fully show | 2019-01-08 10:48:39
 ```
 
-Our approach to this challenge
+Initial user stories
 ---------
 
 ```
@@ -60,6 +60,44 @@ So I don't get confused about when I had these thoughts
 I want to see a timestamp with my messages
 ```
 
-* After receiving our user stories, we began with diagramming & modelling what information we were given, as well as thinking about initial tests which would form our BDD process
-![Imgur](https://i.imgur.com/yyOkCrt.jpg)
-![Imgur](https://i.imgur.com/XXlqBaM.jpg)
+Additional user stories
+---------
+```
+As a user
+So I can amend my thoughts
+I want to be able to edit older messages
+```
+
+```
+As a user
+So I can forget my thoughts
+I want to be able to delete older messages
+```
+
+## Usage
+
+### Submit messages
+
+1. Enter your message in the field and click 'Submit'
+
+### Editing a message 
+
+1. Click on a partial message link
+2. Click the 'Edit' button 
+3. Change your message, hit submit and return to the index page
+
+### Deleting a message
+
+1. Click on a message link which you'd rather forget
+2. Click the 'Delete' button and return to the index page
+
+![Imgur](https://i.imgur.com/ufrY20G.png)
+
+Upgrading or migrating databases
+---------
+```
+$ rake db:auto_upgrade
+Upgrade successfully completed!
+$ rake db:auto_migrate
+Migration successfully completed!
+```
